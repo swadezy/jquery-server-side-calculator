@@ -4,4 +4,5 @@ $(onReady);
 
 function onReady() {
     console.log('jq loaded');
+    
 }
