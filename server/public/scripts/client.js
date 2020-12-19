@@ -45,8 +45,34 @@ function setDiv() {
 function calcAnswer() {
     //this sends to server
     console.log('clicked equals');
+    if ($('#inputOne').val() != '' && $('#inputTwo').val() != '' && operator != '') {
+        let objectToSend = {
+            integerOne: $('#inputOne').val(),
+            operator: operator,
+            integerTwo: $('#inputTwo').val()
+        }
+        console.log('sending', objectToSend);
+        $.ajax({
+            url: '/calc',
+            type: 'POST',
+            data: objectToSend
+        }).then(function(response) {
+            // this is where I'll append to history
+            console.log(response);
+            historyAppend();
+        })
+        
+    }
+    else {
+        console.log('please complete all fields and select an operator');
 
+    }
 }
+
+function historyAppend() {
+    
+}
+
 
 function clearInputs() {
     console.log('clicked clear');
