@@ -1,49 +1,48 @@
 console.log('js loaded');
 
-let operator = ''
-
 $(onReady);
 
+// click listeners
 function onReady() {
     console.log('jq loaded');
-    $('#plusBtn').on('click', setPlus)
-    $('#minusBtn').on('click', setMinus)
-    $('#timesBtn').on('click', setTimes)
-    $('#divBtn').on('click', setDiv)
-    $('#equalsBtn').on('click', calcAnswer)
-    $('#clearBtn').on('click', clearInputs)
+    let operator = '';
+    $('#plusBtn').on('click', setPlus);
+    $('#minusBtn').on('click', setMinus);
+    $('#timesBtn').on('click', setTimes);
+    $('#divBtn').on('click', setDiv);
+    $('#equalsBtn').on('click', calcAnswer);
+    $('#clearBtn').on('click', clearInputs);
+    historyAppend();
 }
 
+// these functions set the operator to be sent along with the inputs
 function setPlus() {
     console.log('clicked plus');
     operator = '+';
     unhighlight();
-    $('#plusBtn').addClass('highlight')
+    $('#plusBtn').addClass('highlight');
 }
-
 function setMinus() {
     console.log('clicked minus');
     operator = '-';
     unhighlight();
-    $('#minusBtn').addClass('highlight')
+    $('#minusBtn').addClass('highlight');
 }
-
 function setTimes() {
     console.log('clicked times');
     operator = '*';
     unhighlight();
-    $('#timesBtn').addClass('highlight')
+    $('#timesBtn').addClass('highlight');
 }
-
 function setDiv() {
     console.log('clicked div');
     operator = '/';
     unhighlight();
-    $('#divBtn').addClass('highlight')
+    $('#divBtn').addClass('highlight');
 }
 
+// this checks the input fields and operator for completion and sends them to server
 function calcAnswer() {
-    //this sends to server
     console.log('clicked equals');
     if ($('#inputOne').val() != '' && $('#inputTwo').val() != '' && operator != '') {
         let objectToSend = {
@@ -57,40 +56,36 @@ function calcAnswer() {
             url: '/calc',
             type: 'POST',
             data: objectToSend
-        }).then(function (response) {
-            // this is where I'll append to history
-            console.log(response);
+        }).then(function () {
             historyAppend();
-        })
-
+        });
     }
     else {
         console.log('please complete all fields and select an operator');
-        $('#domResult').empty()
-        $('#domResult').addClass('red')
-        $('#domResult').append('Please complete both inputs and select an operator')
-    }
+        $('#domResult').empty();
+        $('#domResult').addClass('red');
+        $('#domResult').append('Please complete both inputs and select an operator');
+    };
 }
 
+// this receives the calc history from server and appends it to the DOM
 function historyAppend() {
     $('#historyList').empty();
     $.ajax({
         url: '/calc',
         type: 'GET'
     }).then(function (calcHistory) {
-        console.log('history is', calcHistory)
-        $('#domResult').empty()
-        $('#domResult').removeClass('red')
-        $('#domResult').append(calcHistory[0].result)
+        console.log('history is', calcHistory);
+        $('#domResult').empty();
+        $('#domResult').removeClass('red');
+        $('#domResult').append(calcHistory[0].result);
         for (calc of calcHistory) {
-            $('#historyList').append(`
-            <li>${calc.integerOne} ${calc.operator} ${calc.integerTwo} = ${calc.result}</li>`
-            )
-        }
-    })
+            $('#historyList').append(`<li>${calc.integerOne} ${calc.operator} ${calc.integerTwo} = ${calc.result}</li>`);
+        };
+    });
 }
 
-
+// this clears the inputs and operator
 function clearInputs() {
     console.log('clicked clear');
     operator = '';
@@ -99,6 +94,7 @@ function clearInputs() {
     unhighlight();
 }
 
+// this unhighlights the selected operator
 function unhighlight() {
     $('#plusBtn').removeClass('highlight');
     $('#minusBtn').removeClass('highlight');

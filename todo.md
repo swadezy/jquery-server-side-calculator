@@ -10,7 +10,7 @@
     [x] - Send inputs and operator to server w/ ajax post
     [x] - Clear inputs upon submission and C click
     [x] - Append history received from server to DOM
-    [ ] - Give error if inputs aren't complete & operator not selected
+    [x] - Give error if inputs aren't complete & operator not selected
 
 [ ] - Server Logics
     [x] - Receive inputs and operator from client
@@ -18,4 +18,8 @@
     [x] - Send history back to client
     [ ] - Refactor into separate modules for prettiness
 
-
+[ ] - Stretch Goals
+    [ ] - Add delete history to DOM - this is a DELETE, not a GET or POST
+    [ ] - Convert interface to traditional calculator
+        [ ] - Seems like
+        [ ] - a lot
