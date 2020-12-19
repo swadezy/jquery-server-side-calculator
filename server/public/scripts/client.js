@@ -2,7 +2,7 @@ console.log('js loaded');
 
 $(onReady);
 
-// click listeners
+// click listeners and appends history from server on ready
 function onReady() {
     console.log('jq loaded');
     let operator = '';
@@ -12,7 +12,7 @@ function onReady() {
     $('#divBtn').on('click', setDiv);
     $('#equalsBtn').on('click', calcAnswer);
     $('#clearBtn').on('click', clearInputs);
-    historyAppend();
+
 }
 
 // these functions set the operator to be sent along with the inputs
@@ -89,6 +89,7 @@ function historyAppend() {
 function clearInputs() {
     console.log('clicked clear');
     operator = '';
+    $('#domResult').empty();
     $('#inputOne').val('');
     $('#inputTwo').val('');
     unhighlight();

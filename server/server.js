@@ -3,11 +3,16 @@ const app = express();
 const bodyParser = require('body-parser');
 const PORT = 5000;
 
+const serverPlus = require('./modules/serverplus.js')
+const serverMinus = require('./modules/serverminus.js')
+const serverTimes = require('./modules/servertimes.js')
+const serverDiv = require('./modules/serverdiv.js')
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('server/public'))
 
+// defining history array and individual history object to push into array
 let calcHistory = [];
-
 let historyObj
 
 app.post('/calc', (req, res) => {
@@ -28,48 +33,6 @@ app.post('/calc', (req, res) => {
     }
     toHistory(historyObj)
 
-
-
-
-    function serverPlus(partialCalc) {
-        console.log('adding');
-        return {
-            integerOne: Number(partialCalc.integerOne),
-            operator: partialCalc.operator,
-            integerTwo: Number(partialCalc.integerTwo),
-            result: Number(partialCalc.integerOne) + Number(partialCalc.integerTwo)
-        }
-    }
-
-    function serverMinus(partialCalc) {
-        console.log('subtracting');
-        return {
-            integerOne: Number(partialCalc.integerOne),
-            operator: partialCalc.operator,
-            integerTwo: Number(partialCalc.integerTwo),
-            result: Number(partialCalc.integerOne - partialCalc.integerTwo)
-        }
-    }
-
-    function serverTimes(partialCalc) {
-        console.log('multiplying');
-        return {
-            integerOne: Number(partialCalc.integerOne),
-            operator: partialCalc.operator,
-            integerTwo: Number(partialCalc.integerTwo),
-            result: Number(partialCalc.integerOne * partialCalc.integerTwo)
-        }
-    }
-
-    function serverDiv(partialCalc) {
-        console.log('dividing');
-        return {
-            integerOne: Number(partialCalc.integerOne),
-            operator: partialCalc.operator,
-            integerTwo: Number(partialCalc.integerTwo),
-            result: Number(partialCalc.integerOne / partialCalc.integerTwo)
-        }
-    }
 
     function toHistory(fullCalc) {
         calcHistory.unshift(fullCalc)
