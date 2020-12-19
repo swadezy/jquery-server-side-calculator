@@ -78,9 +78,11 @@ function historyAppend() {
         console.log('history is', calcHistory);
         $('#domResult').empty();
         $('#domResult').removeClass('red');
-        $('#domResult').append(calcHistory[0].result);
-        for (calc of calcHistory) {
-            $('#historyList').append(`<li>${calc.integerOne} ${calc.operator} ${calc.integerTwo} = ${calc.result}</li>`);
+        if (calcHistory.length > 0) {
+            $('#domResult').append(calcHistory[0].result);
+            for (calc of calcHistory) {
+                $('#historyList').append(`<li>${calc.integerOne} ${calc.operator} ${calc.integerTwo} = ${calc.result}</li>`);
+            };
         };
     });
 }
