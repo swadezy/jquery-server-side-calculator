@@ -6,7 +6,7 @@
 
 [ ] - Client Logics
     [x] - Create click listeners for buttons
-    [ ] - Send inputs and operator to server w/ ajax post
+    [x] - Send inputs and operator to server w/ ajax post
     [x] - Clear inputs upon submission and C click
     [ ] - Append history received from server to DOM
     [ ] - Give error if inputs aren't complete & operator not selected

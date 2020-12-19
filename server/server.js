@@ -6,12 +6,7 @@ const PORT = 5000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('server/public'))
 
-let calcHistory = [{
-    integerOne: 3,
-    operator: '+',
-    integerTwo: 4,
-    result: 7
-}];
+let calcHistory = [];
 
 let historyObj
 
@@ -19,16 +14,16 @@ app.post('/calc', (req, res) => {
     let receivedCalc = req.body;
     console.log('received', receivedCalc);
 
-    if (receivedCalc.operator === 'plus') {
+    if (receivedCalc.operator === '+') {
         historyObj = serverPlus(receivedCalc);
     }
-    if (receivedCalc.operator === 'minus') {
+    if (receivedCalc.operator === '-') {
         historyObj = serverMinus(receivedCalc);
     }
-    if (receivedCalc.operator === 'times') {
+    if (receivedCalc.operator === '*') {
         historyObj = serverTimes(receivedCalc);
     }
-    if (receivedCalc.operator === 'div') {
+    if (receivedCalc.operator === '/') {
         historyObj = serverDiv(receivedCalc);
     }
     toHistory(historyObj)
@@ -41,8 +36,8 @@ app.post('/calc', (req, res) => {
         return {
             integerOne: Number(partialCalc.integerOne),
             operator: partialCalc.operator,
-            integerTwo: Number(partialCalc.integerOne),
-            result: Number(partialCalc.integerOne + partialCalc.integerOne)
+            integerTwo: Number(partialCalc.integerTwo),
+            result: Number(partialCalc.integerOne) + Number(partialCalc.integerTwo)
         }
     }
 
@@ -51,8 +46,8 @@ app.post('/calc', (req, res) => {
         return {
             integerOne: Number(partialCalc.integerOne),
             operator: partialCalc.operator,
-            integerTwo: Number(partialCalc.integerOne),
-            result: Number(partialCalc.integerOne - partialCalc.integerOne)
+            integerTwo: Number(partialCalc.integerTwo),
+            result: Number(partialCalc.integerOne - partialCalc.integerTwo)
         }
     }
 
@@ -61,8 +56,8 @@ app.post('/calc', (req, res) => {
         return {
             integerOne: Number(partialCalc.integerOne),
             operator: partialCalc.operator,
-            integerTwo: Number(partialCalc.integerOne),
-            result: Number(partialCalc.integerOne * partialCalc.integerOne)
+            integerTwo: Number(partialCalc.integerTwo),
+            result: Number(partialCalc.integerOne * partialCalc.integerTwo)
         }
     }
 
@@ -71,8 +66,8 @@ app.post('/calc', (req, res) => {
         return {
             integerOne: Number(partialCalc.integerOne),
             operator: partialCalc.operator,
-            integerTwo: Number(partialCalc.integerOne),
-            result: Number(partialCalc.integerOne / partialCalc.integerOne)
+            integerTwo: Number(partialCalc.integerTwo),
+            result: Number(partialCalc.integerOne / partialCalc.integerTwo)
         }
     }
 

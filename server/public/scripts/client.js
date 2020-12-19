@@ -16,28 +16,28 @@ function onReady() {
 
 function setPlus() {
     console.log('clicked plus');
-    operator = 'plus';
+    operator = '+';
     unhighlight();
     $('#plusBtn').addClass('red')
 }
 
 function setMinus() {
     console.log('clicked minus');
-    operator = 'minus';
+    operator = '-';
     unhighlight();
     $('#minusBtn').addClass('red')
 }
 
 function setTimes() {
     console.log('clicked times');
-    operator = 'times';
+    operator = '*';
     unhighlight();
     $('#timesBtn').addClass('red')
 }
 
 function setDiv() {
     console.log('clicked div');
-    operator = 'div';
+    operator = '/';
     unhighlight();
     $('#divBtn').addClass('red')
 }
@@ -51,17 +51,18 @@ function calcAnswer() {
             operator: operator,
             integerTwo: Number($('#inputTwo').val())
         }
+        clearInputs();
         console.log('sending', objectToSend);
         $.ajax({
             url: '/calc',
             type: 'POST',
             data: objectToSend
-        }).then(function(response) {
+        }).then(function (response) {
             // this is where I'll append to history
             console.log(response);
             historyAppend();
         })
-        
+
     }
     else {
         console.log('please complete all fields and select an operator');
@@ -70,11 +71,17 @@ function calcAnswer() {
 }
 
 function historyAppend() {
+    $('#historyList').empty();
     $.ajax({
         url: '/calc',
         type: 'GET'
-    }).then(function(response) {
-        console.log('history is', response)
+    }).then(function (calcHistory) {
+        console.log('history is', calcHistory)
+        for (calc of calcHistory) {
+            $('#historyList').append(`
+            <li>${calc.integerOne} ${calc.operator} ${calc.integerTwo} = ${calc.result}</li>`
+            )
+        }
     })
 }
 
@@ -83,7 +90,7 @@ function clearInputs() {
     console.log('clicked clear');
     operator = '';
     $('#inputOne').val('');
-    $('#inputOne').val('');
+    $('#inputTwo').val('');
     unhighlight();
 }
 
