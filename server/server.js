@@ -72,7 +72,7 @@ app.post('/calc', (req, res) => {
     }
 
     function toHistory(fullCalc) {
-        calcHistory.push(fullCalc)
+        calcHistory.unshift(fullCalc)
     }
 
     res.sendStatus(201)

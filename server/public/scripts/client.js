@@ -18,28 +18,28 @@ function setPlus() {
     console.log('clicked plus');
     operator = '+';
     unhighlight();
-    $('#plusBtn').addClass('red')
+    $('#plusBtn').addClass('highlight')
 }
 
 function setMinus() {
     console.log('clicked minus');
     operator = '-';
     unhighlight();
-    $('#minusBtn').addClass('red')
+    $('#minusBtn').addClass('highlight')
 }
 
 function setTimes() {
     console.log('clicked times');
     operator = '*';
     unhighlight();
-    $('#timesBtn').addClass('red')
+    $('#timesBtn').addClass('highlight')
 }
 
 function setDiv() {
     console.log('clicked div');
     operator = '/';
     unhighlight();
-    $('#divBtn').addClass('red')
+    $('#divBtn').addClass('highlight')
 }
 
 function calcAnswer() {
@@ -66,7 +66,9 @@ function calcAnswer() {
     }
     else {
         console.log('please complete all fields and select an operator');
-
+        $('#domResult').empty()
+        $('#domResult').addClass('red')
+        $('#domResult').append('Please complete both inputs and select an operator')
     }
 }
 
@@ -77,6 +79,9 @@ function historyAppend() {
         type: 'GET'
     }).then(function (calcHistory) {
         console.log('history is', calcHistory)
+        $('#domResult').empty()
+        $('#domResult').removeClass('red')
+        $('#domResult').append(calcHistory[0].result)
         for (calc of calcHistory) {
             $('#historyList').append(`
             <li>${calc.integerOne} ${calc.operator} ${calc.integerTwo} = ${calc.result}</li>`
@@ -95,8 +100,8 @@ function clearInputs() {
 }
 
 function unhighlight() {
-    $('#plusBtn').removeClass('red');
-    $('#minusBtn').removeClass('red');
-    $('#timesBtn').removeClass('red');
-    $('#divBtn').removeClass('red');
+    $('#plusBtn').removeClass('highlight');
+    $('#minusBtn').removeClass('highlight');
+    $('#timesBtn').removeClass('highlight');
+    $('#divBtn').removeClass('highlight');
 }
