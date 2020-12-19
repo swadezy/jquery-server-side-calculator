@@ -11,12 +11,13 @@
     [x] - Clear inputs upon submission and C click
     [x] - Append history received from server to DOM
     [x] - Give error if inputs aren't complete & operator not selected
+    [ ] - Fix warning on load with empty history
 
 [ ] - Server Logics
     [x] - Receive inputs and operator from client
     [x] - Evaluate the answer & store result and inputs in history function
     [x] - Send history back to client
-    [ ] - Refactor into separate modules for prettiness
+    [x] - Refactor into separate modules for prettiness
 
 [ ] - Stretch Goals
     [ ] - Add delete history to DOM - this is a DELETE, not a GET or POST

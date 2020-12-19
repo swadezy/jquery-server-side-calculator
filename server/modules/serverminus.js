@@ -1,3 +1,4 @@
+// calculates result & creates new object based on subtraction operator
 function serverMinus(partialCalc) {
     console.log('subtracting');
     return {

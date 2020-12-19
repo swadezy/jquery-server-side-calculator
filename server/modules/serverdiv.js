@@ -1,3 +1,4 @@
+// calculates result & creates new object based on division operator
 function serverDiv(partialCalc) {
     console.log('dividing');
     return {

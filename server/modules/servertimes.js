@@ -1,3 +1,4 @@
+// calculates result & creates new object based on multiplication operator
 function serverTimes(partialCalc) {
     console.log('multiplying');
     return {

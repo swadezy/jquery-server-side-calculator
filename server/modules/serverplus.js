@@ -1,3 +1,4 @@
+// calculates result & creates new object based on addition operator
 function serverPlus(partialCalc) {
     console.log('adding');
     return {

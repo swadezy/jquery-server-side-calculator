@@ -2,7 +2,7 @@ console.log('js loaded');
 
 $(onReady);
 
-// click listeners and appends history from server on ready
+// click listeners and appends history from server on ready (gives warning in console if no history present on load)
 function onReady() {
     console.log('jq loaded');
     let operator = '';
@@ -12,7 +12,7 @@ function onReady() {
     $('#divBtn').on('click', setDiv);
     $('#equalsBtn').on('click', calcAnswer);
     $('#clearBtn').on('click', clearInputs);
-
+    historyAppend();
 }
 
 // these functions set the operator to be sent along with the inputs
@@ -85,7 +85,7 @@ function historyAppend() {
     });
 }
 
-// this clears the inputs and operator
+// this clears the inputs, operator, and most recent result / error
 function clearInputs() {
     console.log('clicked clear');
     operator = '';
@@ -95,7 +95,7 @@ function clearInputs() {
     unhighlight();
 }
 
-// this unhighlights the selected operator
+// this removes highlighting from all operators
 function unhighlight() {
     $('#plusBtn').removeClass('highlight');
     $('#minusBtn').removeClass('highlight');
