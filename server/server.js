@@ -39,40 +39,40 @@ app.post('/calc', (req, res) => {
     function serverPlus(partialCalc) {
         console.log('adding');
         return {
-            integerOne: partialCalc.integerOne,
+            integerOne: Number(partialCalc.integerOne),
             operator: partialCalc.operator,
-            integerTwo: partialCalc.integerOne,
-            result: partialCalc.integerOne + partialCalc.integerOne
+            integerTwo: Number(partialCalc.integerOne),
+            result: Number(partialCalc.integerOne + partialCalc.integerOne)
         }
     }
 
     function serverMinus(partialCalc) {
         console.log('subtracting');
         return {
-            integerOne: partialCalc.integerOne,
+            integerOne: Number(partialCalc.integerOne),
             operator: partialCalc.operator,
-            integerTwo: partialCalc.integerOne,
-            result: partialCalc.integerOne - partialCalc.integerOne
+            integerTwo: Number(partialCalc.integerOne),
+            result: Number(partialCalc.integerOne - partialCalc.integerOne)
         }
     }
 
     function serverTimes(partialCalc) {
         console.log('multiplying');
         return {
-            integerOne: partialCalc.integerOne,
+            integerOne: Number(partialCalc.integerOne),
             operator: partialCalc.operator,
-            integerTwo: partialCalc.integerOne,
-            result: partialCalc.integerOne * partialCalc.integerOne
+            integerTwo: Number(partialCalc.integerOne),
+            result: Number(partialCalc.integerOne * partialCalc.integerOne)
         }
     }
 
     function serverDiv(partialCalc) {
         console.log('dividing');
         return {
-            integerOne: partialCalc.integerOne,
+            integerOne: Number(partialCalc.integerOne),
             operator: partialCalc.operator,
-            integerTwo: partialCalc.integerOne,
-            result: partialCalc.integerOne / partialCalc.integerOne
+            integerTwo: Number(partialCalc.integerOne),
+            result: Number(partialCalc.integerOne / partialCalc.integerOne)
         }
     }
 

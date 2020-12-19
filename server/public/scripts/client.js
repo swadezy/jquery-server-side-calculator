@@ -47,9 +47,9 @@ function calcAnswer() {
     console.log('clicked equals');
     if ($('#inputOne').val() != '' && $('#inputTwo').val() != '' && operator != '') {
         let objectToSend = {
-            integerOne: $('#inputOne').val(),
+            integerOne: Number($('#inputOne').val()),
             operator: operator,
-            integerTwo: $('#inputTwo').val()
+            integerTwo: Number($('#inputTwo').val())
         }
         console.log('sending', objectToSend);
         $.ajax({
@@ -70,7 +70,12 @@ function calcAnswer() {
 }
 
 function historyAppend() {
-    
+    $.ajax({
+        url: '/calc',
+        type: 'GET'
+    }).then(function(response) {
+        console.log('history is', response)
+    })
 }
 
 
