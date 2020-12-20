@@ -15,7 +15,7 @@ function onReady() {
     historyAppend();
 }
 
-// these functions set the operator to be sent along with the inputs
+// these functions set the operator to be sent along with the inputs and display the operator on the DOM
 function setPlus() {
     console.log('clicked plus');
     unSelect();
@@ -103,7 +103,7 @@ function clearInputs() {
     unSelect();
 }
 
-// this removes highlighting from all operators
+// this unselects the operator
 function unSelect() {
     operator = '';
     $('#operatorOutput').removeClass('alert alert-secondary')
