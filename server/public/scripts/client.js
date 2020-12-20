@@ -18,27 +18,31 @@ function onReady() {
 // these functions set the operator to be sent along with the inputs
 function setPlus() {
     console.log('clicked plus');
+    unSelect();
+    $('#operatorOutput').addClass('alert alert-secondary');
     operator = '+';
-    unhighlight();
-    $('#plusBtn').addClass('highlight');
+    $('#operatorOutput').append(operator);
 }
 function setMinus() {
     console.log('clicked minus');
+    unSelect();
+    $('#operatorOutput').addClass('alert alert-secondary');
     operator = '-';
-    unhighlight();
-    $('#minusBtn').addClass('highlight');
+    $('#operatorOutput').append(operator);
 }
 function setTimes() {
     console.log('clicked times');
+    unSelect();
+    $('#operatorOutput').addClass('alert alert-secondary');
     operator = '*';
-    unhighlight();
-    $('#timesBtn').addClass('highlight');
+    $('#operatorOutput').append(operator);
 }
 function setDiv() {
     console.log('clicked div');
+    unSelect();
+    $('#operatorOutput').addClass('alert alert-secondary');
     operator = '/';
-    unhighlight();
-    $('#divBtn').addClass('highlight');
+    $('#operatorOutput').append(operator);
 }
 
 // this checks the input fields and operator for completion and sends them to server
@@ -96,13 +100,12 @@ function clearInputs() {
     $('#domError').removeClass('alert alert-danger');
     $('#inputOne').val('');
     $('#inputTwo').val('');
-    unhighlight();
+    unSelect();
 }
 
 // this removes highlighting from all operators
-function unhighlight() {
-    $('#plusBtn').removeClass('highlight');
-    $('#minusBtn').removeClass('highlight');
-    $('#timesBtn').removeClass('highlight');
-    $('#divBtn').removeClass('highlight');
+function unSelect() {
+    operator = '';
+    $('#operatorOutput').removeClass('alert alert-secondary')
+    $('#operatorOutput').empty();
 }

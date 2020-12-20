@@ -15,19 +15,23 @@
     <h1 class="display-4 text-center">Server Side Calculator</h1>
     <br>
     <div class="center">
-
-        <div class="btn-group" role="group">
+        <div class="btn-group btn-group-toggle" role="group" data-toggle="buttons">
             <input type="number" id="inputOne" />
-            <button id="plusBtn" class="btn btn-primary">+</button>
-            <button id="minusBtn" class="btn btn-primary">-</button>
-            <button id="timesBtn" class="btn btn-primary">*</button>
-            <button id="divBtn" class="btn btn-primary">/</button>
+            <button type="button" data-toggle="button" autocomplete="off" id="plusBtn"
+                class="btn btn-secondary">+</button>
+            <button type="button" data-toggle="button" autocomplete="off" id="minusBtn"
+                class="btn btn-secondary">-</button>
+            <button type="button" data-toggle="button" autocomplete="off" id="timesBtn"
+                class="btn btn-secondary">*</button>
+            <button type="button" data-toggle="button" autocomplete="off" id="divBtn"
+                class="btn btn-secondary">/</button>
             <input type="number" id="inputTwo" />
+            <div id="operatorOutput" role="alert"></div>
         </div>
         <div class="big-break"></div>
         <div class="btn-group" role="group">
-            <button id="equalsBtn" class="btn btn-primary">=</button>
-            <button id="clearBtn" class="btn btn-primary">C</button>
+            <button id="equalsBtn" class="btn btn-secondary">=</button>
+            <button id="clearBtn" class="btn btn-secondary">C</button>
         </div>
     </div>
     <div class="big-break"></div>

@@ -6,6 +6,15 @@ h1 {
     border: 2px solid red;
 } */
 
+#operatorOutput {
+
+    margin-bottom: 0px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .red {
     color: red;
 }
