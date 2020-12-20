@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheets/bootstrap.css">
     <link rel="stylesheet" href="./stylesheets/style.css">
     <script src="./vendors/jquery-3.5.1.js"></script>
     <script src="./scripts/client.js"></script>
     <title>Server Side Calculator</title>
 </head>
-<body>
-    <h1>Server Side Calculator</h1>
+
+<body class='container'>
+    <h1 class="display-4 text-center">Server Side Calculator</h1>
+    <br>
     <input type="number" id="inputOne" />
-    <button id="plusBtn">+</button>
-    <button id="minusBtn">-</button>
-    <button id="timesBtn">*</button>
-    <button id="divBtn">/</button>
+    <button id="plusBtn" class="btn btn-primary">+</button>
+    <button id="minusBtn" class="btn btn-primary">-</button>
+    <button id="timesBtn" class="btn btn-primary">*</button>
+    <button id="divBtn" class="btn btn-primary">/</button>
     <input type="number" id="inputTwo" />
-    <button id="equalsBtn">=</button>
-    <button id="clearBtn">C</button>
-    <h3 id="domResult"></h3>
-    <ul id="historyList"></ul>
+    <button id="equalsBtn" class="btn btn-primary">=</button>
+    <button id="clearBtn" class="btn btn-primary">C</button>
+    <br>
+    <br>
+    <h5 id="domError"></h5>
+    <h5 id="domResult"></h5>
+    <ul id="historyList" class="list-unstyled"></ul>
 </body>
+
 </html>

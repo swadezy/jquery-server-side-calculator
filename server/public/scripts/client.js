@@ -62,9 +62,9 @@ function calcAnswer() {
     }
     else {
         console.log('please complete all fields and select an operator');
-        $('#domResult').empty();
-        $('#domResult').addClass('red');
-        $('#domResult').append('Please complete both inputs and select an operator');
+        $('#domError').empty();
+        $('#domError').addClass('alert alert-danger');
+        $('#domError').append('Please complete both inputs and select an operator');
     };
 }
 
@@ -76,8 +76,9 @@ function historyAppend() {
         type: 'GET'
     }).then(function (calcHistory) {
         console.log('history is', calcHistory);
+        $('#domError').empty();
+        $('#domError').removeClass('alert alert-danger');
         $('#domResult').empty();
-        $('#domResult').removeClass('red');
         if (calcHistory.length > 0) {
             $('#domResult').append(calcHistory[0].result);
             for (calc of calcHistory) {
@@ -91,7 +92,8 @@ function historyAppend() {
 function clearInputs() {
     console.log('clicked clear');
     operator = '';
-    $('#domResult').empty();
+    $('#domError').empty();
+    $('#domError').removeClass('alert alert-danger');
     $('#inputOne').val('');
     $('#inputTwo').val('');
     unhighlight();

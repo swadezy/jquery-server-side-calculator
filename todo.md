@@ -3,7 +3,6 @@
     [x] - Create four buttons for operator and two for submission / clear
     [x] - Create a div for the result
     [x] - Create a ul for the history logs
-    [ ] - Style that ish up
 
 [ ] - Client Logics
     [x] - Create click listeners for buttons
@@ -24,3 +23,4 @@
     [ ] - Convert interface to traditional calculator
         [ ] - Seems like
         [ ] - a lot
+    [ ] - Style that ish up
