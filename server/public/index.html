@@ -14,18 +14,25 @@
 <body class='container'>
     <h1 class="display-4 text-center">Server Side Calculator</h1>
     <br>
-    <input type="number" id="inputOne" />
-    <button id="plusBtn" class="btn btn-primary">+</button>
-    <button id="minusBtn" class="btn btn-primary">-</button>
-    <button id="timesBtn" class="btn btn-primary">*</button>
-    <button id="divBtn" class="btn btn-primary">/</button>
-    <input type="number" id="inputTwo" />
-    <button id="equalsBtn" class="btn btn-primary">=</button>
-    <button id="clearBtn" class="btn btn-primary">C</button>
-    <br>
-    <br>
+    <div class="center">
+
+        <div class="btn-group" role="group">
+            <input type="number" id="inputOne" />
+            <button id="plusBtn" class="btn btn-primary">+</button>
+            <button id="minusBtn" class="btn btn-primary">-</button>
+            <button id="timesBtn" class="btn btn-primary">*</button>
+            <button id="divBtn" class="btn btn-primary">/</button>
+            <input type="number" id="inputTwo" />
+        </div>
+        <div class="big-break"></div>
+        <div class="btn-group" role="group">
+            <button id="equalsBtn" class="btn btn-primary">=</button>
+            <button id="clearBtn" class="btn btn-primary">C</button>
+        </div>
+    </div>
+    <div class="big-break"></div>
     <h5 id="domError"></h5>
-    <h5 id="domResult"></h5>
+    <h4 id="domResult"></h4>
     <ul id="historyList" class="list-unstyled"></ul>
 </body>
 

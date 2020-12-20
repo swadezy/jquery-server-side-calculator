@@ -9,3 +9,13 @@ h1 {
 .red {
     color: red;
 }
+
+.center {
+    text-align: center;
+
+}
+
+.big-break {
+    display: block;
+    margin: 15px 0;
+}
